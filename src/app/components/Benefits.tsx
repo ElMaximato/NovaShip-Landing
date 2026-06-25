@@ -1,96 +1,117 @@
 import { Link } from 'react-router-dom';
-import { Clock, MapPin, Shield, Headphones, History, CreditCard, Bell, Home, Calculator, Truck } from 'lucide-react';
+import { CalendarDays, Trophy, Users, Utensils, Star, Clock, CreditCard, Bell } from 'lucide-react';
 
 const benefitsList = [
-  { icon: Clock,       title: 'Entrega puntual',        description: 'Cumplimos con los tiempos prometidos en cada envío.' },
-  { icon: MapPin,      title: 'Rastreo en tiempo real', description: 'Sigue tu paquete minuto a minuto desde cualquier dispositivo.' },
-  { icon: Shield,      title: 'Seguridad garantizada',  description: 'Todos los envíos incluyen seguro básico sin costo adicional.' },
-  { icon: Headphones,  title: 'Atención 24/7',          description: 'Soporte disponible las 24 horas para resolver tus dudas.' },
+  { icon: CalendarDays, title: 'Reserva fácil',          description: 'Reserva tu cancha en minutos desde la web o por WhatsApp.' },
+  { icon: Trophy,       title: 'Torneos y competencias', description: 'Participa en torneos locales organizados para todos los niveles.' },
+  { icon: Users,        title: 'Para todos los niveles', description: 'Desde principiantes hasta jugadores avanzados, tenemos tu espacio.' },
+  { icon: Utensils,     title: 'Restaurant & Bar',       description: 'La Terraza y Super Juice disponibles para antes y después de jugar.' },
 ];
 
 const cuentaBeneficios = [
-  { icon: History,     title: 'Historial de envíos',    description: 'Consulta todos tus envíos anteriores y descarga tus guías cuando quieras.' },
-  { icon: CreditCard,  title: 'Pagos más rápidos',      description: 'Guarda tus métodos de pago y completa tus envíos en segundos.' },
-  { icon: Bell,        title: 'Alertas en tiempo real', description: 'Recibe notificaciones del estado de tu paquete en cada etapa del trayecto.' },
-  { icon: Home,        title: 'Recolección a domicilio',description: 'Programa la recolección de tu paquete sin salir de casa, a tu horario.' },
+  { icon: Star,        title: 'Primera clase gratis',    description: 'Regístrate y obtén tu primera clase de pádel sin costo. Incluye coach y palas.' },
+  { icon: CreditCard,  title: 'Reservas más rápidas',    description: 'Guarda tus datos y reserva tu cancha favorita en segundos.' },
+  { icon: Bell,        title: 'Promociones exclusivas',  description: 'Recibe alertas de descuentos, viernes de estudiantes y eventos especiales.' },
+  { icon: Clock,       title: 'Historial de reservas',   description: 'Consulta tus reservas anteriores y vuelve a agendar con un clic.' },
 ];
 
 export function Benefits() {
   return (
     <>
-      {/* ── Sección 1: Cotizar y Enviar estilo DHL ── */}
+      {/* ── Sección 1: ¿Qué quieres hacer hoy? ── */}
       <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900">¿Qué quieres hacer hoy?</h2>
-            <div className="h-1 w-12 bg-yellow-400 rounded-full mx-auto mt-3" />
+            <div className="h-1 w-12 bg-[#8DC63F] rounded-full mx-auto mt-3" />
           </div>
 
-          {/* Cards estilo DHL — 2 cards + imagen lateral */}
           <div className="grid md:grid-cols-3 gap-0 rounded-2xl overflow-hidden shadow-md border border-gray-200">
 
-            {/* Card Cotizar */}
-            <div className="bg-white p-8 flex flex-col justify-between border-r border-gray-200 group hover:bg-yellow-50 transition-colors">
+            {/* Card Reservar */}
+            <div className="bg-white p-8 flex flex-col justify-between border-r border-gray-200 group hover:bg-green-50 transition-colors">
               <div>
-                <div className="bg-yellow-100 p-3 rounded-xl w-fit mb-5">
-                  <Calculator className="h-6 w-6 text-yellow-600" />
+                <div className="bg-green-100 p-3 rounded-xl w-fit mb-5">
+                  <CalendarDays className="h-6 w-6 text-[#8DC63F]" />
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mb-3">Cotizar envío</h3>
+                <h3 className="text-base font-bold text-gray-900 mb-3">Reservar cancha</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Calcula el precio de tu envío al instante. Solo elige origen, destino y tipo de paquete.
+                  Elige tu horario, selecciona la cancha disponible y confirma tu reserva al instante.
                 </p>
               </div>
-              <Link
-                to="/cotizar"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#0c1f4a] group-hover:text-yellow-600 transition-colors"
-              >
-                Cotizar ahora
-                <span className="text-base">›</span>
+              <Link to="/reservar" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#2D6E7E] group-hover:text-[#8DC63F] transition-colors">
+                Reservar ahora <span className="text-base">›</span>
               </Link>
             </div>
 
-            {/* Card Crear envío */}
-            <div className="bg-white p-8 flex flex-col justify-between group hover:bg-yellow-50 transition-colors">
+            {/* Card Clases */}
+            <div className="bg-white p-8 flex flex-col justify-between group hover:bg-green-50 transition-colors">
               <div>
-                <div className="bg-yellow-100 p-3 rounded-xl w-fit mb-5">
-                  <Truck className="h-6 w-6 text-yellow-600" />
+                <div className="bg-green-100 p-3 rounded-xl w-fit mb-5">
+                  <Users className="h-6 w-6 text-[#8DC63F]" />
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mb-3">Crear envío</h3>
+                <h3 className="text-base font-bold text-gray-900 mb-3">Tomar clases</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Genera tu guía en minutos y programa la recolección a domicilio cuando tú quieras.
+                  ¿Nunca has jugado pádel? Tu primera clase es gratis. Incluye coach y palas.
                 </p>
               </div>
-              <Link
-                to="/envios"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#0c1f4a] group-hover:text-yellow-600 transition-colors"
-              >
-                Crear envío
-                <span className="text-base">›</span>
+              <Link to="/clases" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#2D6E7E] group-hover:text-[#8DC63F] transition-colors">
+                Ver clases <span className="text-base">›</span>
               </Link>
             </div>
 
-           {/* Imagen lateral */}
+            {/* Imagen lateral */}
             <div className="hidden md:block relative overflow-hidden">
               <img
-                src="/personal2.webp" // 👈 Solo cambia la ruta aquí
-                alt="Operador NovaShip"
+                src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&q=80&w=600"
+                alt="Jugadores en Riú Padel"
                 className="w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-[#2D6E7E]/30" />
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── Seccion Comienza con NovaShip ── */}
+      {/* ── Sección 2: Por qué elegirnos ── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">¿Por qué elegir Riú Padel?</h2>
+            <div className="h-1 w-12 bg-[#8DC63F] rounded-full mx-auto mt-3" />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefitsList.map((b, i) => {
+              const Icon = b.icon;
+              return (
+                <div key={i} className="text-center space-y-3">
+                  <div className="flex justify-center">
+                    <div className="bg-[#2D6E7E] p-5 rounded-2xl">
+                      <Icon className="h-8 w-8 text-[#8DC63F]" />
+                    </div>
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900">{b.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{b.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sección 3: Comienza con Riú ── */}
       <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Comienza con NovaShip</h2>
-            <div className="h-1 w-12 bg-yellow-400 rounded-full mx-auto mt-3 mb-4" />
+            <h2 className="text-3xl font-bold text-gray-900">Comienza con Riú Padel</h2>
+            <div className="h-1 w-12 bg-[#8DC63F] rounded-full mx-auto mt-3 mb-4" />
             <p className="text-sm text-gray-500 max-w-xl mx-auto">
-              Crea tu cuenta gratis y accede a todas estas ventajas desde el primer envío.
+              Crea tu cuenta gratis y accede a beneficios exclusivos desde tu primera reserva.
             </p>
           </div>
 
@@ -99,8 +120,8 @@ export function Benefits() {
               const Icon = b.icon;
               return (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="bg-yellow-100 p-3 rounded-xl shrink-0">
-                    <Icon className="h-6 w-6 text-yellow-600" />
+                  <div className="bg-green-100 p-3 rounded-xl shrink-0">
+                    <Icon className="h-6 w-6 text-[#8DC63F]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-gray-900 mb-1">{b.title}</h3>
@@ -112,17 +133,11 @@ export function Benefits() {
           </div>
 
           <div className="text-center flex flex-wrap gap-4 justify-center">
-            <Link
-              to="/registro"
-              className="bg-yellow-400 hover:bg-yellow-300 text-[#0c1f4a] px-8 py-3 rounded-xl font-bold text-sm transition-colors shadow-sm"
-            >
+            <Link to="/registro" className="bg-[#8DC63F] hover:bg-[#7db535] text-white px-8 py-3 rounded-xl font-bold text-sm transition-colors shadow-sm">
               Crear cuenta gratis
             </Link>
-            <Link
-              to="/cotizar"
-              className="border border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-semibold text-sm hover:bg-gray-50 transition-colors"
-            >
-              Cotizar sin cuenta
+            <Link to="/reservar" className="border border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-semibold text-sm hover:bg-gray-50 transition-colors">
+              Reservar sin cuenta
             </Link>
           </div>
 

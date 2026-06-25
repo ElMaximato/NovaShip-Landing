@@ -6,16 +6,9 @@ import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { Benefits } from './components/Benefits';
 import { LoginPage } from './pages/LoginPage';
-import { CotizarPage } from './pages/CotizarPage';
 import { RegistroPage } from './pages/RegistroPage';
-import { RastreoPage } from './pages/RastreoPage';
-import { EnviosPage } from './pages/EnviosPage';
-import { ServiciosPage } from './pages/ServiciosPage';
-import { AyudaPage }     from './pages/AyudaPage';
-import { TerminosPage } from './pages/TerminosPage';
-import { PrivacidadPage } from './pages/PrivacidadPage';
-import { ContactoPage } from './pages/ContactoPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { ReservarPage } from './pages/ReservarPage';
 
 function LandingPage() {
   return (
@@ -35,20 +28,18 @@ export default function App() {
 
       <main className="flex-grow">
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/cotizar" element={<CotizarPage />} />
-          <Route path="/rastreo" element={<RastreoPage />} />
-
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/registro" element={<RegistroPage />} />
-          <Route path="/envios" element={<EnviosPage />} />
-          <Route path="/servicios" element={<ServiciosPage />} />
-          <Route path="/ayuda"     element={<AyudaPage />} />
-          <Route path="/terminos" element={<TerminosPage />} />
-          <Route path="/privacidad" element={<PrivacidadPage />} />
-          <Route path="/contacto" element={<ContactoPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-          
+          <Route path="/"          element={<LandingPage />} />
+          <Route path="/login"     element={<LoginPage />} />
+          <Route path="/registro"  element={<RegistroPage />} />
+          {/* Páginas por construir */}
+          <Route path="/precios"   element={<div className="p-8 text-center text-gray-500">Precios — próximamente</div>} />
+          <Route path="/clases"    element={<div className="p-8 text-center text-gray-500">Clases — próximamente</div>} />
+          <Route path="/torneos"   element={<div className="p-8 text-center text-gray-500">Torneos — próximamente</div>} />
+          <Route path="/servicios" element={<div className="p-8 text-center text-gray-500">Servicios — próximamente</div>} />
+          <Route path="/contacto"  element={<div className="p-8 text-center text-gray-500">Contacto — próximamente</div>} />
+          <Route path="/privacidad" element={<div className="p-8 text-center text-gray-500">Privacidad — próximamente</div>} />
+          <Route path="*"          element={<NotFoundPage />} />
+          <Route path="/reservar" element={<ReservarPage />} />
         </Routes>
       </main>
 
