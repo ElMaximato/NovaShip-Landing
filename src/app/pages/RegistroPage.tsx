@@ -74,11 +74,11 @@ const ejecutarRegistro = async (datos: {
 }) => {
   const id = await registrarUsuario(datos);
   return id;
-};
+  };
 
-export function RegistroPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirm,  setShowConfirm]  = useState(false);
+  export function RegistroPage() {
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirm,  setShowConfirm]  = useState(false);
 
   const [nombre,   setNombre]   = useState('');
   const [apellido, setApellido] = useState('');

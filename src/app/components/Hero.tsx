@@ -5,9 +5,9 @@ export function Hero() {
   return (
     <section className="relative min-h-[600px] flex flex-col justify-center overflow-hidden">
 
-      <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&q=80&w=1600" alt="" className="absolute inset-0 w-full h-full object-cover" aria-hidden="true" />
+      <img src="/hero.png" alt="" className="absolute inset-0 w-full h-full object-cover" aria-hidden="true" />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#2D6E7E]/95 via-[#2D6E7E]/80 to-[#2D6E7E]/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#2D6E7E]/95 via-[#2D6E7E]/60 to-[#2D6E7E]/10" />
 
       <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#8DC63F] via-[#8DC63F]/60 to-transparent" />
 

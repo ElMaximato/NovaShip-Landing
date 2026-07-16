@@ -1,187 +1,152 @@
-import { useState } from 'react';
-import { Phone, Mail, MessageCircle, MapPin, Clock, ChevronDown } from 'lucide-react';
-
-const faqs = [
-  { pregunta: '¿Cuánto tarda en responder el equipo de soporte?',      respuesta: 'Respondemos correos en menos de 24 horas en días hábiles. Por teléfono y chat la atención es inmediata.' },
-  { pregunta: '¿Puedo rastrear mi paquete sin tener cuenta?',           respuesta: 'Sí, solo necesitas tu número de guía en la sección de Rastreo, sin necesidad de iniciar sesión.' },
-  { pregunta: '¿Qué hago si mi paquete no llegó en la fecha estimada?', respuesta: 'Contáctanos por teléfono o chat con tu número de guía y te daremos información actualizada del estado de tu envío.' },
-];
-
-function FAQItem({ pregunta, respuesta }: { pregunta: string; respuesta: string }) {
-  const [abierto, setAbierto] = useState(false);
-  return (
-    <div className="border-b border-gray-200 last:border-0">
-      <button
-        onClick={() => setAbierto(!abierto)}
-        className="w-full flex items-center justify-between py-4 text-left gap-4"
-      >
-        <span className="text-sm font-semibold text-gray-800">{pregunta}</span>
-        <ChevronDown className={`h-4 w-4 text-gray-400 shrink-0 transition-transform duration-200 ${abierto ? 'rotate-180' : ''}`} />
-      </button>
-      {abierto && (
-        <p className="text-sm text-gray-500 leading-relaxed pb-4">{respuesta}</p>
-      )}
-    </div>
-  );
-}
+import { MapPin, Phone, Instagram, Clock, CalendarDays } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function ContactoPage() {
-  const [enviado, setEnviado] = useState(false);
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-[#f6f7f9] min-h-screen" style={{ fontFamily: "'Inter', sans-serif" }}>
 
       {/* Encabezado */}
-      <div className="bg-white border-b border-gray-200 px-6 py-8">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-2xl font-bold text-gray-900">Centro de contacto</h1>
-          <div className="h-1 w-12 bg-yellow-400 rounded-full mt-2" />
-          <p className="text-sm text-gray-500 mt-3">
-            Estamos aquí para ayudarte. Elige el canal que prefieras.
+      <div className="px-6 pt-20 pb-16">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#9cbe46] mb-3">
+            Riú Padel Complex
+          </p>
+          <h1 className="text-5xl md:text-6xl font-light text-[#0c0d0f] leading-[1.05] tracking-tight">
+            Contacto
+          </h1>
+          <p className="text-base text-gray-500 mt-5 max-w-md font-light leading-relaxed">
+            Estamos en San Luis Río Colorado, Sonora. Contáctanos por WhatsApp o visítanos.
           </p>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-10 space-y-6">
+      <div className="max-w-4xl mx-auto px-6 pb-20">
 
-        {/* Canales de contacto */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            { icon: Phone,         titulo: 'Teléfono',            valor: '653 136 1234',          sub: 'Lun–Vie 9:00–18:00',        color: 'bg-yellow-100 text-yellow-600' },
-            { icon: Mail,          titulo: 'Correo electrónico',  valor: 'novaship_ayuda@gmail.com', sub: 'Respuesta en menos de 24h', color: 'bg-blue-100 text-blue-600'   },
-            { icon: MessageCircle, titulo: 'Chat en línea',       valor: 'Chat WhatsApp',         sub: 'Lun–Vie 9:00–18:00',        color: 'bg-green-100 text-green-600'  },
-          ].map(({ icon: Icon, titulo, valor, sub, color }) => (
-            <div
-              key={titulo}
-              className="bg-white rounded-xl border border-gray-200 p-6 flex flex-col items-center text-center hover:border-yellow-300 hover:shadow-sm transition-all"
-            >
-              <div className={`${color} p-3 rounded-xl mb-3`}>
-                <Icon className="h-6 w-6" />
-              </div>
-              <p className="text-xs text-gray-400 mb-1">{titulo}</p>
-              <p className="text-sm font-bold text-gray-900">{valor}</p>
-              <p className="text-xs text-gray-400 mt-1">{sub}</p>
-            </div>
-          ))}
-        </div>
+        <div className="grid md:grid-cols-2 gap-6">
 
-        {/* Formulario + Info + Imagen */}
-        <div className="grid lg:grid-cols-4 gap-6 items-start">
-
-          {/* Info adicional */}
+          {/* Info de contacto */}
           <div className="space-y-4">
-            <div className="bg-white rounded-xl border border-gray-200 p-5 space-y-4">
-              <h2 className="text-sm font-bold text-gray-900">Información de contacto</h2>
-              <div className="space-y-3">
-                {[
-                  { icon: MapPin, texto: 'Av. Hidalgo y 22, San Luis Rio Colorado' },
-                  { icon: Clock,  texto: 'Lunes a Viernes · 9:00 AM – 6:00 PM'    },
-                  { icon: Mail,   texto: 'novaship_ayuda@gmail.com'                 },
-                  { icon: Phone,  texto: '653 136 1234'                             },
-                ].map(({ icon: Icon, texto }) => (
-                  <div key={texto} className="flex items-start gap-3 text-sm text-gray-500">
-                    <Icon className="h-4 w-4 text-yellow-500 shrink-0 mt-0.5" />
-                    <span>{texto}</span>
-                  </div>
-                ))}
+
+            {/* Dirección */}
+            <div className="bg-white rounded-[22px] shadow-sm p-6 flex items-start gap-4">
+              <div className="bg-[#295868] p-3 rounded-xl shrink-0">
+                <MapPin className="h-5 w-5 text-white" />
               </div>
-            </div>
-
-            {/* FAQ rápido */}
-            <div className="bg-white rounded-xl border border-gray-200 px-5 py-4">
-              <h2 className="text-sm font-bold text-gray-900 mb-2">Preguntas frecuentes</h2>
-              {faqs.map((f, i) => (
-                <FAQItem key={i} pregunta={f.pregunta} respuesta={f.respuesta} />
-              ))}
-            </div>
-          </div>
-
-          {/* Formulario */}
-          <div className="lg:col-span-2 bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-            {enviado ? (
-              <div className="flex flex-col items-center justify-center h-full py-12 text-center space-y-3">
-                <div className="bg-green-100 p-4 rounded-full">
-                  <MessageCircle className="h-10 w-10 text-green-600" />
-                </div>
-                <h3 className="text-base font-bold text-gray-900">¡Mensaje enviado!</h3>
-                <p className="text-sm text-gray-500 max-w-xs">
-                  Te responderemos a la brevedad en el correo que proporcionaste.
+              <div>
+                <p className="text-sm font-semibold text-[#0c0d0f] mb-1">Dirección</p>
+                <p className="text-sm text-gray-500 leading-relaxed font-light">
+                  Av. Carranza y 45<br />
+                  San Luis Río Colorado, Sonora<br />
+                  México
                 </p>
               </div>
-            ) : (
-              <div className="space-y-4">
-                <h2 className="text-base font-bold text-gray-900 mb-2">Envíanos un mensaje</h2>
+            </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-gray-700">Nombre <span className="text-red-500">*</span></label>
-                    <input
-                      type="text"
-                      placeholder="Juan Pérez"
-                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-gray-700">Correo electrónico <span className="text-red-500">*</span></label>
-                    <input
-                      type="email"
-                      placeholder="juan@correo.com"
-                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-gray-700">Número de guía <span className="text-gray-400">(opcional)</span></label>
-                  <input
-                    type="text"
-                    placeholder="Ej: NS-2026-48291"
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-gray-700">Motivo de contacto <span className="text-red-500">*</span></label>
-                  <select className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition bg-white">
-                    <option value="">Selecciona una opción</option>
-                    <option>Problema con un envío</option>
-                    <option>Consulta sobre precios</option>
-                    <option>Cancelación de envío</option>
-                    <option>Reclamación por daño o pérdida</option>
-                    <option>Información general</option>
-                    <option>Otro</option>
-                  </select>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-gray-700">Mensaje <span className="text-red-500">*</span></label>
-                  <textarea
-                    rows={4}
-                    placeholder="Describe tu situación con el mayor detalle posible..."
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition resize-none"
-                  />
-                </div>
-
-                <button
-                  onClick={() => setEnviado(true)}
-                  className="w-full bg-yellow-400 hover:bg-yellow-300 text-[#0c1f4a] py-3 rounded-xl font-bold text-sm transition-colors"
-                >
-                  Enviar mensaje
-                </button>
+            {/* WhatsApp */}
+            <div className="bg-white rounded-[22px] shadow-sm p-6 flex items-start gap-4">
+              <div className="bg-[#25D366] p-3 rounded-xl shrink-0">
+                <Phone className="h-5 w-5 text-white" />
               </div>
-            )}
+              <div>
+                <p className="text-sm font-semibold text-[#0c0d0f] mb-1">WhatsApp</p>
+                <a href="https://wa.me/526533015976" target="_blank" rel="noreferrer" className="text-sm text-[#25D366] font-semibold hover:underline">
+                  653 301 5976
+                </a>
+                <p className="text-xs text-gray-400 mt-1 font-light">
+                  Respuesta rápida para reservas y dudas
+                </p>
+              </div>
+            </div>
+
+            {/* Instagram */}
+            <div className="bg-white rounded-[22px] shadow-sm p-6 flex items-start gap-4">
+              <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-3 rounded-xl shrink-0">
+                <Instagram className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-[#0c0d0f] mb-1">Instagram</p>
+                <a href="https://instagram.com/riupadel.mx" target="_blank" rel="noreferrer" className="text-sm text-purple-600 font-semibold hover:underline">
+                  @riupadel.mx
+                </a>
+                <p className="text-xs text-gray-400 mt-1 font-light">
+                  Promociones, torneos y novedades
+                </p>
+              </div>
+            </div>
+
+            {/* Horarios */}
+            <div className="bg-white rounded-[22px] shadow-sm p-6 flex items-start gap-4">
+              <div className="bg-[#ec5c26] p-3 rounded-xl shrink-0">
+                <Clock className="h-5 w-5 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-[#0c0d0f] mb-2.5">Horarios</p>
+                <div className="space-y-1.5">
+                  {[
+                    { dia: 'Lunes a Viernes', hora: '6:00 AM – 12:00 AM' },
+                    { dia: 'Sábado y Domingo', hora: '6:00 AM – 12:00 AM' },
+                  ].map(({ dia, hora }) => (
+                    <div key={dia} className="flex justify-between gap-4 text-sm font-light">
+                      <span className="text-gray-500">{dia}</span>
+                      <span className="font-medium text-[#0c0d0f]">{hora}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          {/* Imagen vertical */}
-          <div className="hidden lg:block rounded-xl overflow-hidden h-full min-h-[500px]">
-            <img
-              src="/paquete_vertical.jpg"
-              alt="NovaShip"
-              className="w-full h-full object-cover rounded-xl"
-            />
-          </div>
+          {/* Mapa + CTA */}
+          <div className="space-y-4">
 
+            {/* Mapa embebido de Google Maps */}
+            <div className="bg-white rounded-[22px] shadow-sm overflow-hidden">
+              <iframe
+                title="Ubicación Riú Padel Complex"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3390.0!2d-114.778!3d32.463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDI3JzQ2LjgiTiAxMTTCsDQ2JzQwLjgiVw!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
+                <p className="text-xs text-gray-400 font-light">Av. Carranza y 45, SLRC</p>
+                <a href="https://maps.google.com/?q=Av.+Carranza+y+45,+San+Luis+Rio+Colorado,+Sonora" target="_blank" rel="noreferrer" className="text-xs text-[#295868] font-semibold hover:text-[#9cbe46] transition-colors">
+                  Abrir en Maps →
+                </a>
+              </div>
+            </div>
+
+            {/* CTA Reservar */}
+            <div className="bg-[#295868] rounded-[22px] p-7 space-y-5">
+              <div>
+                <p className="text-[#9cbe46] text-[10px] font-semibold tracking-[0.14em] uppercase mb-3">
+                  ¿Listo para jugar?
+                </p>
+                <h3 className="text-white font-light text-2xl mb-2 leading-tight">
+                  Reserva tu <span className="font-semibold">cancha ahora</span>
+                </h3>
+                <p className="text-white/60 text-sm leading-relaxed font-light">
+                  Elige tu horario y cancha favorita. Te confirmamos por WhatsApp.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <Link to="/reservar" className="flex items-center justify-center gap-2 bg-[#ec5c26] hover:bg-[#d54f1c] text-white px-5 py-3 rounded-full font-semibold text-sm transition-colors">
+                  <CalendarDays className="h-4 w-4" />
+                  Reservar cancha
+                </Link>
+                <Link to="/precios" className="flex items-center justify-center gap-2 border border-white/30 text-white px-5 py-3 rounded-full font-medium text-sm hover:bg-white/10 transition-colors">
+                  Ver precios
+                </Link>
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </div>
   );

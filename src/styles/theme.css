@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -178,4 +179,29 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+}
+@keyframes float-light {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(15px);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+.animate-float-light {
+  animation-name: float-light;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
